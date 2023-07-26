@@ -1,0 +1,40 @@
+{
+  "name": "project-vizier",
+  "version": "1.0.0",
+  "author": "Rajat Sharma",
+  "publisher": "rajatsharma",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vsbuild watch",
+    "build": "vsbuild prepublish",
+    "package": "yarn build && vsce package -o vizier.vsix",
+    "prepare": "yarn package && code --install-extension ./vizier.vsix && rm -f ./vizier.vsix"
+  },
+  "main": "out/main.js",
+  "engines": {
+    "vscode": "^1.22.0"
+  },
+  "eslintConfig": {
+    "extends": "x"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:cauldron.hello"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "cauldron.hello",
+        "title": "Cauldron: Hello"
+      }
+    ]
+  },
+  "devDependencies": {
+    "eslint-config-x": "https://github.com/rajatsharma/eslint-config-x",
+    "typescript": "^4.5.4",
+    "vsce": "^2.6.3",
+    "vscode": "^1.1.37"
+  }
+}
